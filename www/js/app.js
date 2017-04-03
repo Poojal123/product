@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var myapp = angular.module('product', ['ionic','ngResource'])
+var myapp = angular.module('product', ['ionic','ngResource','ngCordova']);
 
-.run(function($ionicPlatform) {
+myapp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,8 +21,11 @@ var myapp = angular.module('product', ['ionic','ngResource'])
     }
   });
 })
+myapp.config(['$httpProvider', function ($httpProvider) {    
+	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+}]);
 
-.config(function($stateProvider, $urlRouterProvider) {
+myapp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
     .state('app', {
@@ -49,34 +52,51 @@ var myapp = angular.module('product', ['ionic','ngResource'])
         }
       }
     })
-  .state('app.login', {
+  .state('login', {
       url: '/login',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/login.html',
-          controller:'loginCtrl'
-        }
-      }
+      templateUrl: 'templates/login.html',
+      controller:'loginCtrl'
+     
+     
     })
-    .state('app.playlists', {
-      url: '/playlists',
+  .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller:'loginCtrl'
+     
+     
+    })
+    .state('app.products', {
+      url: '/products',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
+          templateUrl: 'templates/Products.html',
           controller: 'PlaylistsCtrl'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.viewProduct', {
+    url: '/viewProduct?id&name&image&price',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/viewProduct.html',
+        controller: 'viewProductCtrl'
       }
     }
   });
+//  .state('app.viewProduct', {
+//    url: '/viewProduct',
+//    views: {
+//      'menuContent': {
+//        templateUrl: 'templates/viewProduct.html',
+//        controller: 'viewProductCtrl'
+//      }
+//    }
+//  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  if(localStorage.getItem("userid")!= null){
+      $urlRouterProvider.otherwise('/app/products');
+  }else
+  $urlRouterProvider.otherwise('/login');
 });

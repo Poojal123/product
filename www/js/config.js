@@ -5,5 +5,5 @@
  */
 
 
-var WEB_URL = "http://192.168.0.104";
-WEB_URL=WEB_URL+"/ProductApi/";
+var WEB_URL = "http://192.168.0.101";
+WEB_URL=WEB_URL+"/productApi/";

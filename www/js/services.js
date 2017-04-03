@@ -5,10 +5,54 @@
  */
 
 
-myapp.factory('LoginUser', ['$resource','CORE_CONFIG','WEB_API', function($resource,CORE_CONFIG,WEB_API)
-	 {
-//             alert(CORE_CONFIG.WEB_SERVICE+WEB_API.GETDATA);
-	  return $resource(CORE_CONFIG.WEB_SERVICE+WEB_API.GetLoginData+'/:id', {},{ 'update': { method:'PUT' } 
-	 }  
-	); 
-}]);
+myapp.factory('LoginUser',  function($http,CORE_CONFIG,WEB_API){
+	return{
+    request: function(message){
+        return $http({ url:CORE_CONFIG.WEB_SERVICE+WEB_API.GetLoginData ,method:"POST",data:message});
+    }
+  } 
+});
+myapp.factory('RegisterUser', function($http,CORE_CONFIG,WEB_API){
+  return{
+    request: function(message){
+        return $http({ url:CORE_CONFIG.WEB_SERVICE+WEB_API.GetRegisterData ,method:"POST",data:message});
+    }
+  }
+});
+myapp.factory('ProductDetals', function($http,CORE_CONFIG,WEB_API){
+  return{
+    request: function(message){
+        return $http({ url:CORE_CONFIG.WEB_SERVICE+WEB_API.GetProductDetals ,method:"POST",data:message});
+    }
+  }
+});
+myapp.factory('SaveProductDetals', function($http,CORE_CONFIG,WEB_API){
+  return{
+    request: function(message){
+        return $http({ url:CORE_CONFIG.WEB_SERVICE+WEB_API.SaveProductDetals ,method:"POST",data:message});
+    }
+  }
+});
+myapp.factory('GetCoupons', function($http,CORE_CONFIG,WEB_API){
+  return{
+    request: function(message){
+        return $http({ url:CORE_CONFIG.WEB_SERVICE+WEB_API.GetCoupons ,method:"POST",data:message});
+    }
+  }
+});
+
+
+         myapp.factory('product', function() {
+            var factory = {};
+            
+            factory.multiply = function(a, b) {
+               return a * b
+            }
+            return factory;
+         });
+         
+         myapp.service('productaddedit', function(MathService){
+            this.square = function(a) {
+               return MathService.multiply(a,a);
+            }
+         });

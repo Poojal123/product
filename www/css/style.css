@@ -1,1 +1,11 @@
 /* Empty. Add your own CSS if you like */
+.list {
+    margin-bottom:0px;
+    padding-bottom: px;
+    padding-left: 0;
+    padding-top: 0px;
+    position: relative;
+}
+.coupen{
+    background-image: url("../img/discount.png");
+}

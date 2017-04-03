@@ -1,0 +1,21 @@
+<ion-view view-title="Details" cache-view="false">
+  <ion-content>
+    <div class="list card">
+
+  <div class="item item-button-right"">
+    <!--<img ng-src="{{view.image}}">-->
+    <h2>{{view.name}}</h2>
+    <p>{{view.price}}</p>
+    <span ng-hide="hidec" class="button button-clear button-calm" ng-click="applyCoupen();">
+      <i class="icon ion-scissors"></i>
+    </span>
+  </div>
+
+  <div class="item item-image">
+    <img ng-src="{{view.image}}">
+  </div>
+
+
+</div>
+  </ion-content>
+</ion-view>

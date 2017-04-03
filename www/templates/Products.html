@@ -1,0 +1,19 @@
+<ion-view view-title="Products" cache-view="false">
+  <ion-content>
+
+ <div class="list" ng-repeat="product in products" >
+
+    <a class="item item-thumbnail-left">
+      <img  ng-src="{{product.Image}}">
+      <h2><span ng-click="viewprod(product.id,product.Description,product.Image,product.Price)">{{product.Description}}</span></h2>
+      <p>{{product.Price}}</p>
+       <span  ng-if="product.isadmin == 1" class="button button-clear button-calm" ng-click="addProduct();">
+       <i class="icon ion-edit"></i>
+    </span>
+    </a>
+     
+
+</div>
+      
+  </ion-content>
+</ion-view>

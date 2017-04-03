@@ -1,0 +1,26 @@
+<ion-modal-view cache-view="false">
+  <ion-header-bar>
+    <h1 class="title">Add Product</h1>
+    <div class="buttons">
+      <button class="button button-clear button-calm" ng-click="closeProduct()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+  <label class="item item-input">
+    <input type="text" placeholder="Product Name" ng-model="product.prodName" >
+  </label>
+  <label class="item item-input">
+    <input type="tel" placeholder="Price" ng-model="product.price">
+  </label>
+  <!--<label class="item">-->
+      <button class="button button-icon button-clear button-calm" ng-click="SelectImage()"><i class="icon ion-image"></i>  select Image</button>
+      
+      <img ng-src="{{product.selectedImage}}" width="20" height="20">
+  <!--</label>-->
+  
+  
+  <button class="button button-block button-calm" ng-click="saveProduct()"> Submit</button>
+</div>
+  </ion-content>
+</ion-modal-view>

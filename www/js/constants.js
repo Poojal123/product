@@ -7,7 +7,7 @@
 
 myapp.constant('CORE_CONFIG', 
 	{
-		HTTP_PROTOCOL: 'http://',
+//		HTTP_PROTOCOL: 'http://',
 		SERVER_IP: WEB_URL,
 		WEB_SERVICE: WEB_URL+'index.php/api'		
 	}
@@ -15,10 +15,11 @@ myapp.constant('CORE_CONFIG',
 myapp.constant('WEB_API', 
 	{
 		// ALL WEB SERVICES
-		GetLoginData: '/Student/StudentData',
-		FOLDERSCAN: '/CropImageApi/folderscan',
-		convertImage: '/CropImageApi/ConvertImage',
-		SaveCoordinates: '/CropImageApi/SaveCoordinates',
-		GetData: '/CropImageApi/GetData',
+		GetLoginData: '/ProductLogin/UserLoginDetails',
+		GetRegisterData: '/ProductLogin/UserRegisterDetails',
+		GetProductDetals: '/ProductLogin/ProductDetails',
+		SaveProductDetals: '/ProductLogin/SaveProductDetails',
+		GetCoupons: '/ProductLogin/GetCoupons',
+		
         }
         );
